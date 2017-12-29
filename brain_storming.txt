@@ -1,0 +1,8 @@
+Tâches à faire :
+-	Interface réseau
+-	Tracking du doigt
+-	Télécharger les bibliothèques
+-	Tester le code pour la Pi Camera
+-	Fournir le carton
+-	Fournir la bombe de peinture
+-	Créer l’interface utilisateur pour le client
