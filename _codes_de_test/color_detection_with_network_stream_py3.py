@@ -20,7 +20,7 @@ rawCapture = PiRGBArray(camera, size=(1024, 768))
 
 server_socket = socket.socket()
 server_socket.bind(('0.0.0.0', 8000))
-server_socket.listen(0)
+server_socket.listen(0) 
 
 # Accept a single connection and make a file-like object out of it
 connection = server_socket.accept()[0].makefile('rb')
