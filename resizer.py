@@ -16,3 +16,5 @@ def resize_image():
     dim = (512, 512) # Définition des dimensions de l'image finale
     processed = cv2.resize(image, dim, interpolation = cv2.INTER_AREA) # Redimensionnement de l'image dans les dimensions finales
     cv2.imwrite(glb.process, processed) # Enregistrement de l'image finale
+    
+resize_image()

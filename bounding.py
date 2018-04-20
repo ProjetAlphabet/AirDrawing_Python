@@ -16,6 +16,6 @@ for cnt in contours:
     x,y,w,h = cv2.boundingRect(cnt)
     roi=im[y:y+h,x:x+w]
     cv2.imwrite(str(idx) + '.jpg', roi)
-    cv2.rectangle(im,(x,y),(x+w,y+h),(200,0,0),2)
+    cv2.rectangle(im,(x,y),(x+w,y+h),(255,255,255),2)
 cv2.imshow('img',im)
 cv2.waitKey(0)   
