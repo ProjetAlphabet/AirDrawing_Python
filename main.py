@@ -101,6 +101,7 @@ while True:
         cv2.line(frame, pts[i - 1], pts[i], (0, 0, 255), thickness)
 
     # show the frame to our screen
+    frame = cv2.flip(frame, 1) # Symétrie de la vidéo
     cv2.imshow("Frame", frame)
     key = cv2.waitKey(1) & 0xFF
 
