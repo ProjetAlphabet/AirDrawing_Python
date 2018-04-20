@@ -4,6 +4,7 @@ Created on Fri Apr 20 10:36:16 2018
 
 @author: blook
 """
+# Redimension de l'image
 
 import __var__ as glb
 import cv2

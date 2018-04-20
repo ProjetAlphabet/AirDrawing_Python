@@ -4,6 +4,7 @@ Created on Wed Apr 18 21:12:23 2018
 
 @author: blook
 """
+# Boîte test temporaire
 
 import cv2
 

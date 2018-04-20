@@ -4,6 +4,7 @@ Created on Wed Apr 18 16:38:09 2018
 
 @author: blook
 """
+# Changement de couleur en blanc
 
 # Importation de PIL
 from PIL import Image
