@@ -19,4 +19,4 @@ for cnt in contours:
     cv2.imwrite(str(idx) + '.jpg', roi)
     cv2.rectangle(im,(x,y),(x+w,y+h),(255,255,255),2)
 cv2.imshow('img',im)
-cv2.waitKey(0)   
+cv2.waitKey(0)
