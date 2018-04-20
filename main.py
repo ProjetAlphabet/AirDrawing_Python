@@ -9,6 +9,11 @@ import argparse
 import imutils
 import cv2
 
+import bounding
+import pixel_color
+import resizer
+import __var__ as glb
+
 # construct the argument parse and parse the arguments
 ap = argparse.ArgumentParser()
 ap.add_argument("-v", "--video",
@@ -99,10 +104,23 @@ while True:
     cv2.imshow("Frame", frame)
     key = cv2.waitKey(1) & 0xFF
 
-    if key == ord("p"):
-        cv2.imwrite('test.jpg', frame)
+    if key == ord("c"):
         pts = deque(maxlen=0)
         pts = deque(maxlen=args['buffer'])
+        
+    if key == ord("p"):
+        # Enregistrement de l'image
+        cv2.imwrite(glb.cam, frame)
+        
+        # Effacement du tracé
+        pts = deque(maxlen=0)
+        pts = deque(maxlen=args['buffer'])
+        
+        # Traitement de l'image
+        bounding.processing() # Récupération du tracé seul
+        pixel_color.convert_pix() # Conversion des pixels autres que ceux du tracé en noir
+        resizer.resize_image() # Redimensionnement de l'image en 512x512
+        pixel_color.convert_white() # Conversion des pixels du tracé en blanc
 
     # if the 'q' key is pressed, stop the loop
     if key == ord("q"):

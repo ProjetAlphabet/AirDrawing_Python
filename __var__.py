@@ -4,7 +4,7 @@ Created on Wed Apr 18 17:02:43 2018
 
 @author: blook
 """
-# support
+# Support (variables globales)
 
 # Définition du nom des modèles
 # /!\ SAISIR LES NOMS ET LES MODELES CORRESPONDANT AU MEME INDICE /!\ #
@@ -18,6 +18,8 @@ models_nums = []
 models_shap = ["./models/shapes/carre_model.png", "./models/shapes/cercle_model.png", "./models/shapes/losange_model.png", "./models/shapes/triangle_model.png"]
 
 # Variables globales
+cam = "./__temp__/cam.png"
+saved = "./__temp__/saved.png"
 draw = "./__temp__/draw.png"
 process = "./__temp__/processed.png"
 white = "./__temp__/white.png"
