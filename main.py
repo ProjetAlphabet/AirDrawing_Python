@@ -100,7 +100,7 @@ Mafenetre.config(menu=menubar)
 #___Insertion du titre
 
 # Image titre
-photo = PhotoImage(file="titre.png")
+photo = PhotoImage(file="./res/UI/titre.png")
 photo_taille=photo.subsample(2,2)
 
 # création d'un widget Frame appellé titre dans Mafenetre
@@ -120,7 +120,7 @@ Canevas.pack(anchor=CENTER)"""
 #___Insertion déco
 
 # Image deco
-photodeco = PhotoImage(file="2.png")
+photodeco = PhotoImage(file="./res/UI/2.png")
 photodeco_taille=photodeco.subsample(2,2)
 
 deco = Frame(Mafenetre,borderwidth=0,relief=GROOVE, bg="black")
@@ -132,7 +132,7 @@ Label(deco, image=photodeco_taille, bg="black").pack(side=LEFT)
 
 # Création d'une zone graphique (widget canvas)
 Nom1 = Canvas(deco,width = 71, height =75, bg="black", bd=0)
-U = PhotoImage(file="utilisateur.png")
+U = PhotoImage(file="./res/UI/utilisateur.png")
 U_2 = U.subsample(2,2)
 Nom1.create_image(0,0,anchor=NW, image=U_2)
 print("jusqu'ici Nom1")
@@ -173,17 +173,17 @@ Frame43.pack(side=RIGHT,padx=5,pady=10)
 
 # création d'un widget Label et d'un widget Button dans un widget Frame
 Label(Frame1,text="Choix de la représentation:\n une lettre", bg="black", fg="white").pack(padx=1,pady=1)
-A =PhotoImage(file="a.png")
+A =PhotoImage(file="./res/UI/a.png")
 AA = A.subsample(2,2)
 Button(Frame1,image=AA,bg='black',command=couleura, cursor="star").pack(padx=1,pady=1)
 
 Label(Frame2,text="Choix de la représentation:\n un chiffre", bg="black", fg="white").pack(padx=1,pady=1)
-B =PhotoImage(file="1.png")
+B =PhotoImage(file="./res/UI/1.png")
 BB = B.subsample(2,2)
 Button(Frame2,image=BB,bg='black',command=couleurb, cursor="star").pack(padx=1,pady=1)
 
 Label(Frame3,text="Choix de la représentation:\n une forme", bg="black", fg="white").pack(padx=1,pady=1)
-C =PhotoImage(file="triangle.png")
+C =PhotoImage(file="./res/UI/triangle.png")
 CC = C.subsample(2,2)
 Button(Frame3,image=CC,bg='black',command=Frame0.destroy, cursor="star").pack(padx=1,pady=1)
 
