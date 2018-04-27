@@ -15,7 +15,7 @@ models_shap_name = ["carré", "cercle", "losange", "triangle"]
 # Definition du chemin des modèles
 models_alph = []
 models_nums = []
-models_shap = ["./models/shapes/carre_model.png", "./models/shapes/cercle_model.png", "./models/shapes/losange_model.png", "./models/shapes/triangle_model.png"]
+models_shap = ["./res/models/shapes/carre_model.png", "./res/models/shapes/cercle_model.png", "./res/models/shapes/losange_model.png", "./res/models/shapes/triangle_model.png"]
 
 # Variables globales
 cam = "./__temp__/cam.png"
