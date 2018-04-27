@@ -2,6 +2,8 @@ from tkinter import *
 import tkinter.messagebox
 import tkinter.filedialog
 from tkinter import colorchooser
+import os
+import __var__ as glb
 
 #A FAIRE REUSSIR A EXECUTER LA SECONDE FENETRE CONTENANT LE TRACE ET LE RESULTAT
 
@@ -71,8 +73,7 @@ def couleurfond():
 
 def épaisseur():
     a = int(valeur.get())
-    diff["text"] = a, "pixels"
-    
+    diff["text"] = a, "pixels"   
     
 """
 def Ouvrir():
@@ -84,7 +85,7 @@ def Ouvrir():
 
 
 #___Fentre principale, Main window
-Mafenetre = Tk()
+Mafenetre = Toplevel()
 Mafenetre.title("Air drawing - mini projet")
 Mafenetre.geometry("900x900")
 Mafenetre.resizable(width=False,height=False)

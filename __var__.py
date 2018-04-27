@@ -23,3 +23,5 @@ saved = "./__temp__/saved.png"
 draw = "./__temp__/draw.png"
 process = "./__temp__/processed.png"
 white = "./__temp__/white.png"
+
+gamemode = -1

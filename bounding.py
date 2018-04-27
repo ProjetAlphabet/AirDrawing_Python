@@ -32,7 +32,7 @@ def processing():
             # 0 = bleu
             # 1 = vert
             # 2 = rouge
-            if (img[i, j, 0] == 0) and (img[i, j, 1] == 0) and (img[i, j, 2] == 254):
+            if (img[i, j, 0] == 0) and (img[i, j, 1] == 0) and (img[i, j, 2] > 250):
                 xf.append(j) # Insère la colonne du pixel rouge dans un tableau
                 yf.append(i) # Insère la ligne du pixel rouge dans un tableau
 
@@ -44,7 +44,7 @@ def processing():
     max_xf = xf[0]
     
     # Cherche les plus petites et plus grandes valeurs des pixels en x
-    for i in range (1, len(xf)):
+    for i in range (0, len(xf)):
         if min_xf > xf[i]:
             min_xf = xf[i]
         elif max_xf < xf[i]:
@@ -53,10 +53,10 @@ def processing():
     # Pour le tableau des y :
     # Définition des variables max/min
     min_yf = yf[0]
-    max_yf = xf[0]
+    max_yf = yf[0]
 
     # Cherche les plus petites et plus grandes valeurs des pixels en y
-    for i in range (1, len(yf)):
+    for i in range (0, len(yf)):
         if min_yf > yf[i]:
             min_yf = yf[i]
         elif max_yf < yf[i]:
@@ -64,19 +64,19 @@ def processing():
  
     # Déssine un rectangle sur l'image
     # Le rectangle entoure exactement le tracé
-    cv2.rectangle(img,(min_xf - 5, min_yf - 5),(max_xf + 5, max_yf + 5),(0,0,0),2)
+    cv2.rectangle(img,(min_xf, min_yf),(max_xf, max_yf),(0,0,0),2)
 
     # Définition de la hauteur et de la largeur de l'image finale
-    width = (max_xf + 5) - (min_xf - 5)
-    height = (max_yf + 5) - (min_yf - 5)
+    width = max_xf - min_xf
+    height = max_yf - min_yf
 
     # Définition des variables
     blank_image = np.zeros((height,width,3), np.uint8) # Création d'une image vide
     k, l = 0, 0 # Définition des indices pour la copie des pixels
 
     # Copie des pixels dans le rectangle, pixel par pixel, sur une image vierge 
-    for i in range (min_yf - 5, max_yf + 5):
-        for j in range (min_xf - 5, max_xf + 5):
+    for i in range (min_yf, max_yf):
+        for j in range (min_xf, max_xf):
             blank_image[k, l, 0] = img[i, j, 0] # Copie des pixels bleu
             blank_image[k, l, 1] = img[i, j, 1] # Copie des pixels vert
             blank_image[k, l, 2] = img[i, j, 2] # Copie des pixels rouge
