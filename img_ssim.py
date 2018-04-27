@@ -24,12 +24,3 @@ def compare(models, image):
             f = s[k]
             j = k
     return j, f
-
-i, sim = compare(glb.models_shap, glb.white)
-image = cv2.imread(glb.models_shap[i])
-mname = glb.models_shap_name
-
-cv2.imshow(mname[i], image)
-print(sim)
-cv2.waitKey(0)
-cv2.destroyAllWindows()
