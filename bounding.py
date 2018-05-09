@@ -12,6 +12,7 @@ import numpy as np
 
 def processing():
     img = cv2.imread(glb.cam) # Chargement de l'image
+    col = np.asarray(glb.main_color)
 
     y, x, z = img.shape # Définition du x et du y (x = largeur / y = hauteur)
     xf, yf = [], [] # Tableau de tracking du rouge (pour l'instant)
@@ -32,7 +33,7 @@ def processing():
             # 0 = bleu
             # 1 = vert
             # 2 = rouge
-            if (img[i, j, 0] == 0) and (img[i, j, 1] == 0) and (img[i, j, 2] > 250):
+            if (img[i, j, 0] == col[0]) and (img[i, j, 1] == col[1]) and (img[i, j, 2] == col[2]):
                 xf.append(j) # Insère la colonne du pixel rouge dans un tableau
                 yf.append(i) # Insère la ligne du pixel rouge dans un tableau
 

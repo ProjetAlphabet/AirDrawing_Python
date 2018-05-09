@@ -11,11 +11,13 @@ from PIL import Image
 # Importation de OpenCV2
 import cv2
 import __var__ as glb
+import numpy as np
 
 # Transforme tous les pixels autres que ceux du dessin en noir
 def convert_pix():
     img = cv2.imread(glb.saved)
     y, x, z = img.shape
+    col = np.asarray(glb.main_color)
     
     
     # Analyse de la couleur des pixels de l'image pixel par pixel
@@ -33,7 +35,7 @@ def convert_pix():
             # 0 = bleu
             # 1 = vert
             # 2 = rouge
-            if (img[i, j, 0] > 10) and (img[i, j, 1] > 5) and (img[i, j, 2] < 245):
+            if (img[i, j, 0] != col[0]) and (img[i, j, 1] != col[1]) and (img[i, j, 2] != col[2]):
                 img[i, j, 0] = 0
                 img[i, j, 1] = 0
                 img[i, j, 2] = 0
