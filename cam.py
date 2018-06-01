@@ -158,7 +158,7 @@ def init():
         pixel_color.convert_white() # Conversion des pixels du tracé en blanc
     
         if glb.gamemode == 0:
-            indic, sim_compare = sim.compare(glb.models_shap_array, glb.white, 4, 1) # Récupération de l'indice du modèle et du SSIM
+            indic, sim_compare = sim.compare(glb.models_shap_array, glb.white, 4) # Récupération de l'indice du modèle et du SSIM
             glb.model = indic # Ecriture de l'indice du modèle dans le fichier contenant toutes les variables globales
             
             img = cv2.imread(glb.models_shap_array[glb.model]) # Charge l'image associée
@@ -166,20 +166,20 @@ def init():
             write_file(glb.models_shap_name_array[glb.model]) # Exécution de la fonction d'écriture du nom du résultat
             
         elif glb.gamemode == 1:
-            indic, sim_compare = sim.compare(glb.models_nums_array, glb.white, 10, 4) # Récupération de l'indice du modèle et du SSIM
+            indic, sim_compare = sim.compare(glb.models_nums_array, glb.white, 10) # Récupération de l'indice du modèle et du SSIM
             glb.model = indic # Ecriture de l'indice du modèle dans le fichier contenant toutes les variables globales
             
-            img = cv2.imread(glb.models_nums_array[glb.model, 4]) # Charge l'image associée
+            img = cv2.imread(glb.models_nums_array[glb.model, 1]) # Charge l'image associée
             
             write_file(glb.models_nums_name_array[glb.model]) # Exécution de la fonction d'écriture du nom du résultat
             
         elif glb.gamemode == 2:
-            indic, sim_compare = sim.compare(glb.models_alph_array, glb.white) # Récupération de l'indice du modèle et du SSIM
+            indic, sim_compare = sim.compare(glb.models_alph_array, glb.white, 10) # Récupération de l'indice du modèle et du SSIM
             glb.model = indic # Ecriture de l'indice du modèle dans le fichier contenant toutes les variables globales
             
-            img = cv2.imread(glb.models_alph_array[glb.model]) # Charge l'image associée
+            img = cv2.imread(glb.models_alph_array[glb.model, 1]) # Charge l'image associée
             
-            write_file(glb.models_alph_name_array[glb.model, 5]) # Exécution de la fonction d'écriture du nom du résultat
+            write_file(glb.models_alph_name_array[glb.model]) # Exécution de la fonction d'écriture du nom du résultat
         
         print('Done')
         
@@ -272,7 +272,7 @@ def init():
     # Fonction sauver le fichier
     def save_file():
         # Affichage de la boîte de dialogue de sauvegarde
-        file = tkinter.filedialog.asksaveasfile(mode='w', defaultextension=".txt")
+        file = tkinter.filedialog.asksaveasfile(mode='w', defaultextension=".txt", filetypes=[("Fichier texte", "*.txt"), ("Tous les fichiers", "*.*")])
         # Vérification de l'existence du chemin d'accès pour éviter les erreurs
         if file != None:
             # Ecriture du fichier dans sa totalité et ajout d'un retour à la ligne

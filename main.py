@@ -152,7 +152,7 @@ Canevas.pack(anchor=CENTER)"""
 # Image deco
 photodeco = PhotoImage(file="./res/UI/2.png")
 photodeco_taille=photodeco.subsample(2,2)
-    
+
 deco = Frame(Mafenetre,borderwidth=0,relief=GROOVE, bg="black")
 deco.pack(padx=0,pady=0)
     
@@ -166,7 +166,7 @@ Nom1 = Canvas(deco,width = 71, height =75, bg="black", bd=0)
 U = PhotoImage(file="./res/UI/utilisateur.png")
 U_2 = U.subsample(2,2)
 Nom1.create_image(0,0,anchor=NW, image=U_2)
-print("jusqu'ici Nom1")
+#print("jusqu'ici Nom1")
 Nom1.pack(side=RIGHT,padx=10,pady=10)
     
 #___partie blocks enchassées

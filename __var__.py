@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-Created on Wed Apr 18 17:02:43 2018
+Created on Wed Apr 18 17:02:43 2[018
 
 @author: blook
 """
@@ -9,7 +9,7 @@ import numpy as np
 
 # Définition du nom des modèles
 # /!\ SAISIR LES NOMS ET LES MODELES CORRESPONDANT AU MEME INDICE /!\ #
-models_alph_name = []
+models_alph_name = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J']
 models_nums_name = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
 models_shap_name = ["carré\n", "cercle\n", "losange\n", "triangle\n"]
 
@@ -18,17 +18,28 @@ models_nums_name_array = np.asarray(models_nums_name)
 models_shap_name_array = np.asarray(models_shap_name)
 
 # Definition du chemin des modèles
-models_alph = []
-models_nums = (["./res/models/numbers/0/a.png", "./res/models/numbers/0/b.png", "./res/models/numbers/0/c.png", "./res/models/numbers/0/model.png", "./res/models/numbers/0/toshow.png"],
-               ["./res/models/numbers/1/a.png", "./res/models/numbers/1/b.png", "./res/models/numbers/1/c.png", "./res/models/numbers/1/model.png", "./res/models/numbers/1/toshow.png"],
-               ["./res/models/numbers/2/a.png", "./res/models/numbers/2/b.png", "./res/models/numbers/2/c.png", "./res/models/numbers/2/model.png", "./res/models/numbers/2/toshow.png"],
-               ["./res/models/numbers/3/a.png", "./res/models/numbers/3/b.png", "./res/models/numbers/3/c.png", "./res/models/numbers/3/model.png", "./res/models/numbers/3/toshow.png"],
-               ["./res/models/numbers/4/a.png", "./res/models/numbers/4/b.png", "./res/models/numbers/4/c.png", "./res/models/numbers/4/model.png", "./res/models/numbers/4/toshow.png"],
-               ["./res/models/numbers/5/a.png", "./res/models/numbers/5/b.png", "./res/models/numbers/5/c.png", "./res/models/numbers/5/model.png", "./res/models/numbers/5/toshow.png"],
-               ["./res/models/numbers/6/a.png", "./res/models/numbers/6/b.png", "./res/models/numbers/6/c.png", "./res/models/numbers/6/model.png", "./res/models/numbers/6/toshow.png"],
-               ["./res/models/numbers/7/a.png", "./res/models/numbers/7/b.png", "./res/models/numbers/7/c.png", "./res/models/numbers/7/model.png", "./res/models/numbers/7/toshow.png"],
-               ["./res/models/numbers/8/a.png", "./res/models/numbers/8/b.png", "./res/models/numbers/8/c.png", "./res/models/numbers/8/model.png", "./res/models/numbers/8/toshow.png"],
-               ["./res/models/numbers/9/a.png", "./res/models/numbers/9/b.png", "./res/models/numbers/9/c.png", "./res/models/numbers/9/model.png", "./res/models/numbers/9/toshow.png"])
+models_alph = (["./res/models/alphabet/a/maj_model.png", "./res/models/alphabet/a/maj_toshow.png"],
+               ["./res/models/alphabet/b/maj_model.png", "./res/models/alphabet/b/maj_toshow.png"],
+               ["./res/models/alphabet/c/maj_model.png", "./res/models/alphabet/c/maj_toshow.png"],
+               ["./res/models/alphabet/d/maj_model.png", "./res/models/alphabet/d/maj_toshow.png"],
+               ["./res/models/alphabet/e/maj_model.png", "./res/models/alphabet/e/maj_toshow.png"],
+               ["./res/models/alphabet/f/maj_model.png", "./res/models/alphabet/f/maj_toshow.png"],
+               ["./res/models/alphabet/g/maj_model.png", "./res/models/alphabet/g/maj_toshow.png"],
+               ["./res/models/alphabet/h/maj_model.png", "./res/models/alphabet/h/maj_toshow.png"],
+               ["./res/models/alphabet/i/maj_model.png", "./res/models/alphabet/i/maj_toshow.png"],
+               ["./res/models/alphabet/j/maj_model.png", "./res/models/alphabet/j/maj_toshow.png"])
+
+models_nums = (["./res/models/numbers/0/model.png", "./res/models/numbers/0/toshow.png"],
+               ["./res/models/numbers/1/model.png", "./res/models/numbers/1/toshow.png"],
+               ["./res/models/numbers/2/model.png", "./res/models/numbers/2/toshow.png"],
+               ["./res/models/numbers/3/model.png", "./res/models/numbers/3/toshow.png"],
+               ["./res/models/numbers/4/model.png", "./res/models/numbers/4/toshow.png"],
+               ["./res/models/numbers/5/model.png", "./res/models/numbers/5/toshow.png"],
+               ["./res/models/numbers/6/model.png", "./res/models/numbers/6/toshow.png"],
+               ["./res/models/numbers/7/model.png", "./res/models/numbers/7/toshow.png"],
+               ["./res/models/numbers/8/model.png", "./res/models/numbers/8/toshow.png"],
+               ["./res/models/numbers/9/model.png", "./res/models/numbers/9/toshow.png"])
+
 models_shap = ["./res/models/shapes/carre_model.png", "./res/models/shapes/cercle_model.png", "./res/models/shapes/losange_model.png", "./res/models/shapes/triangle_model.png"]
 
 models_alph_array = np.asarray(models_alph)

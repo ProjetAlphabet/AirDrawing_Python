@@ -12,7 +12,7 @@ import cv2
 import numpy as np
 import __var__ as glb
 
-def compare(models, image, N, M):
+def compare(models, image, N):
     
     if glb.gamemode == 0:
         s = []
@@ -29,20 +29,18 @@ def compare(models, image, N, M):
         return j, f
     
     else:
-        s = []
-        somme = 0
+        s = np.array(np.zeros([N, 1]))
         img = cv2.imread(image)
         m = 0
         for i in range(0, N):
-            for j in range(0, M):
+            for j in range(0, 1):
                 model = cv2.imread(models[i, j])
-                somme = somme + ssim(img, model, multichannel=True)
-            s.append(somme)
-            somme = 0
-        f = s[0]
-        for k in range(0, len(s)):
-            if s[k] > f:
-                f = s[k]
-                m = k
+                s[i, j] = ssim(img, model, multichannel=True)
+        f = s[0, 0]
+        for k in range(0, N):
+            for l in range(0, 1):
+                if s[k, l] > f:
+                    f = s[k, l]
+                    m = k
         print(s)
         return m, f
