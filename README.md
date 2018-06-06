@@ -1,7 +1,7 @@
 # Air Drawing
-Projet de traitement vidéo sous Python 3
+Projet de traitement vidéo
 
-Mini Projet d'informatique sous Python3 \
+Mini Projet d'informatique sous Python 3 \
 Lycée Déodat de Séverac
 
 ## Informations importantes
