@@ -1,8 +1,9 @@
+#!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
 Created on Wed Apr 18 16:38:09 2018
 
-@author: blook
+@author: cecilebecquie
 """
 # Changement de couleur en blanc
 

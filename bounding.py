@@ -1,8 +1,9 @@
+#!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
 Created on Wed Apr 18 21:12:23 2018
 
-@author: blook
+@author: cecilebecquie
 """
 # Boîte qui prend le dessin
 

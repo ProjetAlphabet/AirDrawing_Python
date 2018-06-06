@@ -1,8 +1,9 @@
+#!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
 Created on Fri Apr 20 10:36:16 2018
 
-@author: blook
+@author: cecilebecquie
 """
 # Redimension de l'image
 
