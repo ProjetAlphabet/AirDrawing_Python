@@ -37,9 +37,9 @@ Pour Tkinter, il devrait être installé par défaut
 
 ## Auteurs
 * **Guillaume Obin** - *Eléments relatifs à la capture* - [FinnZy](https://github.com/FinnZy)
-* **Marie-Léa Hupin** - *Interface utilisateur*
-* **Cécile Becquié** - *Traitement de l'image*
-* **Emilie Vintrou-Vidal** - *Traitement de l'image*
+* **Marie-Léa Hupin** - *Interface utilisateur* - [Marie-Lea](https://github.com/Marie-Lea)
+* **Cécile Becquié** - *Traitement de l'image* - [cbecq](https://github.com/cbecq)
+* **Emilie Vintrou-Vidal** - *Traitement de l'image* - [FoxyProject](https://github.com/FoxyProject)
 
 ## Licence
 Ce projet est sous licence GNU - voir [LICENSE.md](LICENSE.md) pour plus de détails
