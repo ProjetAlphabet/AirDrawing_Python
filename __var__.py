@@ -9,7 +9,7 @@ import numpy as np
 
 # Définition du nom des modèles
 # /!\ SAISIR LES NOMS ET LES MODELES CORRESPONDANT AU MEME INDICE /!\ #
-models_alph_name = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J']
+models_alph_name = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z',]
 models_nums_name = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
 models_shap_name = ["carré\n", "cercle\n", "losange\n", "triangle\n"]
 
@@ -27,7 +27,23 @@ models_alph = (["./res/models/alphabet/a/maj_model.png", "./res/models/alphabet/
                ["./res/models/alphabet/g/maj_model.png", "./res/models/alphabet/g/maj_toshow.png"],
                ["./res/models/alphabet/h/maj_model.png", "./res/models/alphabet/h/maj_toshow.png"],
                ["./res/models/alphabet/i/maj_model.png", "./res/models/alphabet/i/maj_toshow.png"],
-               ["./res/models/alphabet/j/maj_model.png", "./res/models/alphabet/j/maj_toshow.png"])
+               ["./res/models/alphabet/j/maj_model.png", "./res/models/alphabet/j/maj_toshow.png"],
+               ["./res/models/alphabet/k/maj_model.png", "./res/models/alphabet/k/maj_toshow.png"],
+               ["./res/models/alphabet/l/maj_model.png", "./res/models/alphabet/l/maj_toshow.png"],
+               ["./res/models/alphabet/m/maj_model.png", "./res/models/alphabet/m/maj_toshow.png"],
+               ["./res/models/alphabet/n/maj_model.png", "./res/models/alphabet/n/maj_toshow.png"],
+               ["./res/models/alphabet/o/maj_model.png", "./res/models/alphabet/o/maj_toshow.png"],
+               ["./res/models/alphabet/p/maj_model.png", "./res/models/alphabet/p/maj_toshow.png"],
+               ["./res/models/alphabet/q/maj_model.png", "./res/models/alphabet/q/maj_toshow.png"],
+               ["./res/models/alphabet/r/maj_model.png", "./res/models/alphabet/r/maj_toshow.png"],
+               ["./res/models/alphabet/s/maj_model.png", "./res/models/alphabet/s/maj_toshow.png"],
+               ["./res/models/alphabet/t/maj_model.png", "./res/models/alphabet/t/maj_toshow.png"],
+               ["./res/models/alphabet/u/maj_model.png", "./res/models/alphabet/u/maj_toshow.png"],
+               ["./res/models/alphabet/v/maj_model.png", "./res/models/alphabet/v/maj_toshow.png"],
+               ["./res/models/alphabet/w/maj_model.png", "./res/models/alphabet/w/maj_toshow.png"],
+               ["./res/models/alphabet/x/maj_model.png", "./res/models/alphabet/x/maj_toshow.png"],
+               ["./res/models/alphabet/y/maj_model.png", "./res/models/alphabet/y/maj_toshow.png"],
+               ["./res/models/alphabet/z/maj_model.png", "./res/models/alphabet/z/maj_toshow.png"])
 
 models_nums = (["./res/models/numbers/0/model.png", "./res/models/numbers/0/toshow.png"],
                ["./res/models/numbers/1/model.png", "./res/models/numbers/1/toshow.png"],

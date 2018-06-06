@@ -178,7 +178,7 @@ def init():
             print(sim_compare) # Affiche la valeur du SSIM correspondant
             
         elif glb.gamemode == 2:
-            indic, sim_compare = sim.compare(glb.models_alph_array, glb.white, 10) # Récupération de l'indice du modèle et du SSIM
+            indic, sim_compare = sim.compare(glb.models_alph_array, glb.white, 26) # Récupération de l'indice du modèle et du SSIM
             glb.model = indic # Ecriture de l'indice du modèle dans le fichier contenant toutes les variables globales
             
             img = cv2.imread(glb.models_alph_array[glb.model, 1]) # Charge l'image associée
