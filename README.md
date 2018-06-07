@@ -8,7 +8,13 @@ Lycée Déodat de Séverac
 Certains éléments du projet ne sont pas parfaitement fonctionnels, notamment les modes chiffres et lettres qui sont à améliorer et optimiser grandement : ils souffrent d'un paramétrage des modèles qui n'est pas des plus parfaits et qui doit être revu et optimisé. \
 Pour démarrer le logiciel, lancer le script 'main.py' avec Python 3.
 
-**Attention:** *il est impératif d'utiliser un objet de couleur vert/vert fluo/jaune pour pouvoir tracer les formes. Il est conseillé d'utiliser un objet à deux faces dont l'une des deux faces est d'une autre couleur que vert/jaune pour pouvoir "lever" le pinceau. Vous pouvez toujours si vous le souhaitez (et si vous y arrivez) changer l'intervalle de couleur détecté.*
+Lors de la capture, veillez à vérifier que la fenêtre de capture est bien active pour utiliser les raccourcis claviers.
+Pour valider le tracé, appuyez sur "Entrer" et pour effacer le tracé, appuyez sur "Suppr".
+
+**Attention:** *il est impératif d'utiliser un objet de couleur vert/vert fluo/jaune pour pouvoir tracer les formes. Il est conseillé d'utiliser un objet à deux faces dont l'une des deux faces est d'une autre couleur que vert/jaune pour pouvoir "lever" le pinceau. \
+Vous pouvez toujours si vous le souhaitez (et si vous y arrivez) changer l'intervalle de couleur détecté. \
+Il vous est conseillé d'utilser le logiciel avec une caméra de bonne facture, et de porter des vêtements autres que vert/jaune. \
+Veillez aussi à ce que l'arrière-plan soit de couleur blanc/bleu/rouge et que la lumière utilisée soit de couleur blanche/bleu (autre que des lampes jaunes)*
 
 ## Requis
 Pour faire fonctionner le logiciel, il est nécessaire de remplir les pré-requis suivant :
@@ -44,4 +50,4 @@ Pour Tkinter, il devrait être installé par défaut
 * **Emilie Vintrou-Vidal** - *Traitement de l'image* - [FoxyProject](https://github.com/FoxyProject)
 
 ## Licence
-Ce projet est sous licence GNU - voir [LICENSE.md](LICENSE.md) pour plus de détails
+Ce projet est sous licence GPLv3 - voir [LICENSE.md](LICENSE.md) pour plus de détails
