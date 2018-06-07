@@ -38,7 +38,7 @@ def help_window():
     tkinter.messagebox.showinfo("Astuce","Maintenir une position stable")
 
 def about():
-    tkinter.messagebox.showinfo("A propos","Python & Tkinter\n(C) 2017-2018 \n\n Guillaume Obin\n Cécile Becquie\n Emilie Vintrou\n Marie-Léa Hupin \n\n Réalisé avec OpenCV2")
+    tkinter.messagebox.showinfo("A propos","Python & Tkinter\n\n Auteurs :\n Guillaume Obin\n Cécile Becquie\n Emilie Vintrou\n Marie-Léa Hupin \n\n Réalisé avec OpenCV2")
 
 def couleurfond():
     color = colorchooser.askcolor()

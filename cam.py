@@ -292,7 +292,7 @@ def init():
 
     # Fonction fenêtre à propos
     def about():
-        tkinter.messagebox.showinfo("A propos","Python & Tkinter\n(C) 2017-2018 \n\n Guillaume Obin\n Cécile Becquie\n Emilie Vintrou\n Marie-Léa Hupin \n\n Réalisé avec OpenCV2")
+        tkinter.messagebox.showinfo("A propos","Python & Tkinter\n\n Auteurs :\n Guillaume Obin\n Cécile Becquie\n Emilie Vintrou\n Marie-Léa Hupin \n\n Réalisé avec OpenCV2")
     
     # Configuration de l'interface
     window = tkinter.Toplevel() # Création de la fenêtre principale
