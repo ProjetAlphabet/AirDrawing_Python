@@ -18,7 +18,7 @@ Veillez aussi à ce que l'arrière-plan soit de couleur blanc/bleu/rouge et que 
 
 ## Requis
 Pour faire fonctionner le logiciel, il est nécessaire de remplir les pré-requis suivant :
-* Python 3 (3.6 préférée)
+* Python 3 (version 3.6 préférée)
 * OpenCV2
 * Tkinter
 * Toutes les bibliothèques Python relatives aux calculs mathématiques et au traitement de l'image
