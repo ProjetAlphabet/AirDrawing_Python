@@ -8,15 +8,16 @@ Created on Wed Apr 18 23:40:20 2018
 
 # Importation des bibliothèques
 from skimage.measure import compare_ssim as ssim   # Indice de similarité structurelle
+from numpy import array, zeros
+
 import cv2
-import numpy as np
 import __var__ as glb
 
 def compare(models, image, N):
     if glb.gamemode == 0:
         
         # Définition des variables
-        s = np.array(np.zeros([N, 1])) # Tableau contenant les différentes valeurs de SSIM
+        s = array(zeros([N, 1])) # Tableau contenant les différentes valeurs de SSIM
         img = cv2.imread(image) # Ouverture de l'image à comparer via OpenCV
         m = 0 # Indice correspondant au modèle adéquat
     
@@ -40,7 +41,7 @@ def compare(models, image, N):
     else:
          
         # Définition des variables
-        s = np.array(np.zeros([N, 1])) # Tableau contenant les différentes valeurs de SSIM
+        s = array(zeros([N, 1])) # Tableau contenant les différentes valeurs de SSIM
         img = cv2.imread(image) # Ouverture de l'image à comparer via OpenCV
         m = 0 # Indice correspondant au modèle adéquat
     

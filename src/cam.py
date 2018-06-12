@@ -8,13 +8,14 @@ Created on Fri Apr 27 14:20:20 2018
 # Importation des bibliothèques
 from PIL import Image, ImageTk
 from pathlib import Path
+from tkinter import NORMAL, END, DISABLED, GROOVE, Toplevel, Frame, Menu, Label
+from tkinter.filedialog import asksaveasfile
+from tkinter.messagebox import showinfo
+from tkinter.scrolledtext import ScrolledText
+from imutils import resize
+from os import remove
 
 import cv2
-import tkinter
-import tkinter.scrolledtext
-import tkinter.filedialog
-import imutils
-import os
 
 # Importation des fichiers Python3 présents dans le dossier
 import bounding
@@ -39,7 +40,7 @@ def init():
     text = Path("./output.txt")
     # Suppression du fichier texte s'il existe
     if text.is_file():
-        os.remove('./output.txt')
+        remove('./output.txt')
         
     global pts, camera, window # Récupération du tableau de points global
     pts = [] # Réinitialisation du tableau de point à chaque initialisation
@@ -71,7 +72,7 @@ def init():
         
         frame = img_frame() # Récupération de la frame actuelle
         
-        frame = imutils.resize(frame, height=512) # Redimensionnement de la frame
+        frame = resize(frame, height=512) # Redimensionnement de la frame
         hsv = cv2.cvtColor(frame, cv2.COLOR_BGR2HSV) # Conversion en HSV
         
         # Création d'un masque pour la couleur verte
@@ -223,7 +224,7 @@ def init():
         
         text = Path("./output.txt")
         if text.is_file():
-            os.remove('./output.txt')
+            remove('./output.txt')
         camera.release() # Arrête l'utilisation de la caméra pour permettre une réutilisation ultérieure
         window.destroy() # Détruit la fenêtre
         window = None
@@ -249,12 +250,12 @@ def init():
             content = file.read() # Lexture du fichier
             
             # Mise en écriture de la Frame
-            textPad.config(state=tkinter.NORMAL)
-            textPad.delete('1.0', tkinter.END) # Suppression du contenu précédent
+            textPad.config(state=NORMAL)
+            textPad.delete('1.0', END) # Suppression du contenu précédent
             textPad.insert('1.0', content, 'name') # Ajout du nouveau contenu
             textPad.tag_config('name', background='black', foreground='white') # Stylisation du texte
             # Bloquage en mode lecture seule de la Frame
-            textPad.config(state=tkinter.DISABLED)
+            textPad.config(state=DISABLED)
             
             file.close() # Fermeture du fichier texte
     
@@ -263,13 +264,13 @@ def init():
         text = Path("./output.txt")
         # Vérification de la présence du fichier pour éviter les erreurs
         if text.is_file():
-            os.remove('./output.txt') # Suppression du fichier texte
+            remove('./output.txt') # Suppression du fichier texte
             
             # Mise en écriture de la Frame
-            textPad.config(state=tkinter.NORMAL)
-            textPad.delete('1.0', tkinter.END) # Suppression du contenu
+            textPad.config(state=NORMAL)
+            textPad.delete('1.0', END) # Suppression du contenu
             # Bloquage en lecture seule de la Frame
-            textPad.config(state=tkinter.DISABLED)
+            textPad.config(state=DISABLED)
         
         # Charge l'image résultat par défaut
         Frame1.configure(image=default)
@@ -278,24 +279,24 @@ def init():
     # Fonction sauver le fichier
     def save_file():
         # Affichage de la boîte de dialogue de sauvegarde
-        file = tkinter.filedialog.asksaveasfile(mode='w', defaultextension=".txt", filetypes=[("Fichier texte", "*.txt"), ("Tous les fichiers", "*.*")])
+        file = asksaveasfile(mode='w', defaultextension=".txt", filetypes=[("Fichier texte", "*.txt"), ("Tous les fichiers", "*.*")])
         # Vérification de l'existence du chemin d'accès pour éviter les erreurs
         if file != None:
             # Ecriture du fichier dans sa totalité et ajout d'un retour à la ligne
-            data = textPad.get('1.0', tkinter.END+'-1c')
+            data = textPad.get('1.0', END+'-1c')
             file.write(data) # Ecriture du fichier
             file.close() # Fermeture du fichier
     
     # Fonction fenêtre aide
     def help_window():
-        tkinter.messagebox.showinfo("Astuce","Maintenir une position stable")
+        showinfo("Astuce","Maintenir une position stable")
 
     # Fonction fenêtre à propos
     def about():
-        tkinter.messagebox.showinfo("A propos","Python & Tkinter\n\n Auteurs :\n Guillaume Obin\n Cécile Becquie\n Emilie Vintrou\n Marie-Léa Hupin \n\n Réalisé avec OpenCV2")
+        showinfo("A propos","Python & Tkinter\n\n Auteurs :\n Guillaume Obin\n Cécile Becquie\n Emilie Vintrou\n Marie-Léa Hupin \n\n Réalisé avec OpenCV2")
     
     # Configuration de l'interface
-    window = tkinter.Toplevel() # Création de la fenêtre principale
+    window = Toplevel() # Création de la fenêtre principale
     
     # Définition du nom de la fenêtre, en fonction du mode
     if glb.gamemode == 0:
@@ -310,10 +311,10 @@ def init():
         window.wm_title("Camera - Mode -1 (VEUILLEZ LANCER LA CAMERA A TRAVERS LA FENETRE PRINCIPALE!)")
     
     # Création d'une barre de menus
-    menubar = tkinter.Menu(window)
+    menubar = Menu(window)
     
     # Menu fichier
-    menufichier = tkinter.Menu(menubar,tearoff=0)
+    menufichier = Menu(menubar,tearoff=0)
     menufichier.add_command(label="Nouveau", underline=1, command=new_file, accelerator="Ctrl+N")
     menufichier.add_command(label="Savegarder...", underline=1, command=save_file, accelerator="Ctrl+S")
     
@@ -323,7 +324,7 @@ def init():
     menubar.add_cascade(label="Fichier", menu=menufichier) # Ajout du menu à la barre de menus
     
     # Menu aide
-    menuaide = tkinter.Menu(menubar,tearoff=0)
+    menuaide = Menu(menubar,tearoff=0)
     menuaide.add_command(label="À propos", underline=1, command=about, accelerator="F12")
     
     menuaide.add_separator() # Ajout d'un séparateur pour plus de lisibilité
@@ -335,11 +336,11 @@ def init():
     window.resizable(width=False,height=False) # Configuration de la fenêtre comme non redimensionnable
 
     # Configuration de la Frame Tkinter contenant la Frame caméra
-    imageFrame = tkinter.Frame(window, width=682, height=512, background="black", borderwidth=2, relief=tkinter.GROOVE)
+    imageFrame = Frame(window, width=682, height=512, background="black", borderwidth=2, relief=GROOVE)
     imageFrame.grid(row=0, column=0)
 
     # Insertion de la Frame Tkinter de la caméra dans la Frame créée précédemment
-    lmain = tkinter.Label(imageFrame, background="black")
+    lmain = Label(imageFrame, background="black")
     lmain.grid(row=0, column=0, padx=5, pady=5)  
     
     # Configuration des raccourcis clavier
@@ -354,17 +355,17 @@ def init():
     window.protocol("WM_DELETE_WINDOW", on_closing) # Action de fermeture de la fenêtre principale
     
     # Création de la Frame Tkinter contenant l'image finale (résultat du tracé)
-    Frame0 = tkinter.Frame(window, width=512, height=512, borderwidth=2, relief=tkinter.GROOVE, background="black")
+    Frame0 = Frame(window, width=512, height=512, borderwidth=2, relief=GROOVE, background="black")
     Frame0.grid(row = 0, column=1, padx=5, pady=5)
     
     # Label contenant l'image du résultat
-    Frame1 = tkinter.Label(Frame0, image=default, background="black") # Création d'un label vide
+    Frame1 = Label(Frame0, image=default, background="black") # Création d'un label vide
     Frame1.image = default # Insère l'image par défaut
     Frame1.pack(padx=5, pady=5)
     
     # Frame contenant le fichier texte
-    textPad = tkinter.scrolledtext.ScrolledText(window, width=100, height=20, background="black")
-    textPad.config(state=tkinter.DISABLED) # Désactive l'écriture sur la fenêtre
+    textPad = ScrolledText(window, width=100, height=20, background="black")
+    textPad.config(state=DISABLED) # Désactive l'écriture sur la fenêtre
     textPad.grid(row=1, column=0, columnspan=2, padx=5, pady=5) # Permet d'étendre la FrameTk sur deux colonnes au lieu d'une
 
     show_frame() # Exécution de la fonction qui affiche la caméra sur la Frame de gauche
