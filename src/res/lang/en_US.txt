@@ -1,0 +1,29 @@
+### Menu bar
+File
+New
+Save...
+Export
+Normalized result...
+Drew result...
+Exit
+Help
+About
+
+### General settings
+SELECT MODE
+Line thickness settings
+Line color settings
+Select
+Set
+
+### Caution message
+CAUTION!
+The drawing start as soon as yellow
+is spotted on camera, revert your
+tool when you're ready to go.
+
+### Window title
+Camera - Mode -1 (PLEASE LAUNCH CAM THROUGH MAIN WINDOW!)
+Camera - Shape Mode
+Camera - Number Mode
+Camera - ABC Mode

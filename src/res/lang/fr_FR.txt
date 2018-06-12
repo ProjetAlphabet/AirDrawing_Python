@@ -1,0 +1,29 @@
+### Barre de menus
+Fichier
+Nouveau
+Sauvegarder...
+Exporter
+Résultat normalisé...
+Résultat désinné...
+Quitter
+Aide
+À propos
+
+### Paramètres généraux
+SELECTION DU MODE
+Epaisseur du trait
+Couleur du trait
+Valider
+Définir
+
+### Message d'avertissement
+ATTENTION!
+Le dessin démarre dès que la couleur jaune
+est détectée par la caméra, retournez votre
+outil lorsque vous êtes prêts.
+
+### Titre des fenêtres
+Camera - Mode -1 (VEUILLEZ LANCER LA CAMERA A TRAVERS LA FENETRE PRINCIPALE!)
+Camera - Mode formes
+Camera - Mode chiffres
+Camera - Mode alphabet

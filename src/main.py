@@ -6,18 +6,24 @@ Created on Fri Apr 27 14:20:20 2018
 """
 
 # Importation des bibliothèques
-from tkinter import Tk, Menu, PhotoImage, Frame, Label, Canvas, Button, DoubleVar, Scale, colorchooser, GROOVE, LEFT, RIGHT, NW, HORIZONTAL
+from tkinter import Tk, Toplevel, Menu, PhotoImage, Frame, Label, Canvas, Button, DoubleVar, Scale, colorchooser, GROOVE, LEFT, RIGHT, NW, HORIZONTAL
 from tkinter.messagebox import showinfo
+
+import configparser
 
 import __var__ as glb
 import cam
+import settings
 
 # Définition des fonctions
 def help_window():
-    showinfo("Aide","Maintenir une position stable")
+    showinfo(glb.language[8],"Maintenir une position stable")
 
 def about():
-    showinfo("A propos","Version 1.0\n\n Auteurs :\n Guillaume Obin\n Cécile Becquie\n Emilie Vintrou\n Marie-Léa Hupin \n\n Réalisé avec OpenCV2")
+    showinfo(glb.language[9],"Version 1.0 DEV_build_20180612\n\n Auteurs :\n Guillaume Obin\n Cécile Becquie\n Emilie Vintrou\n Marie-Léa Hupin \n\n Réalisé avec OpenCV2")
+
+def preferences():
+    settings.init()
 
 def couleurfond():
     color = colorchooser.askcolor()
@@ -73,6 +79,21 @@ def key_about(e):
 def key_help(e):
     help_window()
 
+config = configparser.ConfigParser() # Création du récepteur de fichier de configuration
+config.read('./config.ini') # Ouverture du fichier de configuration au format .ini
+cfg_lang = int(config.get('Language', 'lang')) # Récupération et conversion en int de la valeur indiquant la langue choisie
+
+# Chargement des fichiers langues associés à la variable de test
+if cfg_lang == 0:
+    file = open('./res/lang/fr_FR.txt', 'r') # Langue française
+elif cfg_lang == 1:
+    file = open('./res/lang/en_US.txt', 'r') # Langue anglaise (US)
+
+lang = file.readlines() # Lecture entière de chaque ligne du fichier (sortie sous forme de tableau)
+lang = [i.replace('\n', '') for i in lang] # Remplacement de chaque \n par rien
+glb.language = lang # Ecriture du tableau contenant les éléments de traduction en global
+file.close() # Fermeture du fichier texte
+
 # Fentre principale, Main window
 Mafenetre = Tk()
 Mafenetre.title("Air Drawing")
@@ -84,14 +105,18 @@ Mafenetre.resizable(width=False,height=False)
 menubar = Menu(Mafenetre)
 
 menufichier = Menu(menubar,tearoff=0)
-menufichier.add_command(label="Quitter", underline=1, command=on_closing, accelerator="Ctrl+Q")
-menubar.add_cascade(label="Fichier", menu=menufichier)
+menufichier.add_command(label=glb.language[7], underline=1, command=on_closing, accelerator="Ctrl+Q")
+menubar.add_cascade(label=glb.language[1], menu=menufichier)
+
+edit_menu = Menu(menubar, tearoff=0)
+edit_menu.add_command(label="Preferences...", underline=1, command=preferences)
+menubar.add_cascade(label="Edit", menu=edit_menu)
     
 menuaide = Menu(menubar,tearoff=0)
-menuaide.add_command(label="À propos", underline=1, command=about, accelerator="F12")
+menuaide.add_command(label=glb.language[9], underline=1, command=about, accelerator="F12")
 menuaide.add_separator()
-menuaide.add_command(label="Aide", underline=1, command=help_window, accelerator="F1")
-menubar.add_cascade(label="Aide", menu=menuaide)
+menuaide.add_command(label=glb.language[8], underline=1, command=help_window, accelerator="F1")
+menubar.add_cascade(label=glb.language[8], menu=menuaide)
     
 # Affichage du menu
 Mafenetre.config(menu=menubar)
@@ -138,7 +163,7 @@ Mafenetre['bg']='black' # couleur de fond
 Frame0 = Frame(Mafenetre,borderwidth=2,relief=GROOVE, bg="black")
 Frame0.pack()
 
-text0 = Label(Frame0, text="SELECTION DU MODE", bg="black", fg="white", font=("Calibri Bold", 12))
+text0 = Label(Frame0, text=glb.language[12], bg="black", fg="white", font=("Calibri Bold", 12))
 text0.pack(pady=1)
     
 # Création d'un widget Frame dans Frame0
@@ -182,25 +207,26 @@ Button(Frame3,image=CC,bg='black',command=formes, cursor="star").pack(padx=5,pad
 thick = glb.thickness, "pixels"
 
 # Epaisseur du trait
-Label(Frame4,text="Epaisseur du trait", bg="black", fg="white").pack(padx=1,pady=10)
+Label(Frame4,text=glb.language[13], bg="black", fg="white").pack(padx=1,pady=10)
 diff = Label(Frame4,text=thick, bg="green", fg="white")
 diff.pack(pady=5)
 valeur = DoubleVar()
 scale1 = Scale(Frame4,from_ = 10, to = 20, variable = valeur ,orient = HORIZONTAL, resolution = 1, cursor="pencil",bd=0, bg="black", fg="white")
 scale1.pack(pady=10, padx=23)
-Button(Frame4, text="Valider", command = épaisseur).pack(padx=10,pady=5)
+Button(Frame4, text=glb.language[15], command = épaisseur).pack(padx=10,pady=5)
     
 # Couleur du tracé 
     
-quest=Label(Frame43,text="Couleur du trait",bg="black", fg="white")
+quest=Label(Frame43,text=glb.language[14],bg="black", fg="white")
 quest.pack(padx=20,pady=10)
-Button(Frame43,text="Définir", command=couleurfond, cursor="pencil").pack(padx=10,pady=5)
+Button(Frame43,text=glb.language[16], command=couleurfond, cursor="pencil").pack(padx=10,pady=5)
 diff1 = Label(Frame43, bg="red", fg="white", width=15)
 diff1.pack(pady=15)
     
 # Résultat
-    
-Label(Frame42,text="ATTENTION! \n\n Le tracé débute dès que la couleur sélectionné \n est détectée, retournez la spatule \nlorsque vous êtes prêts.",bg="black", fg="white").pack(padx=5,pady=10)
+
+caution_msg = glb.language[19] + "\n\n" + glb.language[20] + "\n" + glb.language[21] + "\n" + glb.language[22]
+Label(Frame42,text=caution_msg,bg="black", fg="white").pack(padx=5,pady=10)
 
 Mafenetre.bind("<Control-q>", key_close)
 Mafenetre.bind("<F1>", key_help)

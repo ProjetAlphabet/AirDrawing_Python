@@ -17,6 +17,8 @@ models_alph_name_array = asarray(models_alph_name)
 models_nums_name_array = asarray(models_nums_name)
 models_shap_name_array = asarray(models_shap_name)
 
+models_default_path = "./res"
+
 # Definition du chemin des modèles
 models_alph = (["./res/models/alphabet/a/maj_model.png", "./res/models/alphabet/a/maj_toshow.png"],
                ["./res/models/alphabet/b/maj_model.png", "./res/models/alphabet/b/maj_toshow.png"],
@@ -74,3 +76,5 @@ model = 0
 thickness = 10
 main_color = (0, 0, 255)
 window_color = "#000000"
+
+language = []

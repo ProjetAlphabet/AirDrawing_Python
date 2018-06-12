@@ -289,48 +289,48 @@ def init():
     
     # Fonction fenêtre aide
     def help_window():
-        showinfo("Astuce","Maintenir une position stable")
+        showinfo(glb.language[8],"Maintenir une position stable")
 
     # Fonction fenêtre à propos
     def about():
-        showinfo("A propos","Python & Tkinter\n\n Auteurs :\n Guillaume Obin\n Cécile Becquie\n Emilie Vintrou\n Marie-Léa Hupin \n\n Réalisé avec OpenCV2")
+        showinfo(glb.language[9],"Version 1.0 DEV_build_20180612\n\n Auteurs :\n Guillaume Obin\n Cécile Becquie\n Emilie Vintrou\n Marie-Léa Hupin \n\n Réalisé avec OpenCV2")
     
     # Configuration de l'interface
     window = Toplevel() # Création de la fenêtre principale
     
     # Définition du nom de la fenêtre, en fonction du mode
     if glb.gamemode == 0:
-        window.wm_title("Camera - Mode formes")
+        window.wm_title(glb.language[26])
     if glb.gamemode == 1:
-        window.wm_title("Camera - Mode chiffres")
+        window.wm_title(glb.language[27])
     if glb.gamemode == 2:
-        window.wm_title("Camera - Mode alphabet")
+        window.wm_title(glb.language[28])
     
     # Mode par défaut, lorsque le script n'est pas lancé à travers main.py
     if glb.gamemode == -1:
-        window.wm_title("Camera - Mode -1 (VEUILLEZ LANCER LA CAMERA A TRAVERS LA FENETRE PRINCIPALE!)")
+        window.wm_title(glb.language[25])
     
     # Création d'une barre de menus
     menubar = Menu(window)
     
     # Menu fichier
     menufichier = Menu(menubar,tearoff=0)
-    menufichier.add_command(label="Nouveau", underline=1, command=new_file, accelerator="Ctrl+N")
-    menufichier.add_command(label="Savegarder...", underline=1, command=save_file, accelerator="Ctrl+S")
+    menufichier.add_command(label=glb.language[2], underline=1, command=new_file, accelerator="Ctrl+N")
+    menufichier.add_command(label=glb.language[3], underline=1, command=save_file, accelerator="Ctrl+S")
     
     menufichier.add_separator() # Ajout d'un séparateur pour plus de lisibilité
     
-    menufichier.add_command(label="Fermer", underline=1, command=on_closing, accelerator="Ctrl+Q")
-    menubar.add_cascade(label="Fichier", menu=menufichier) # Ajout du menu à la barre de menus
+    menufichier.add_command(label=glb.language[7], underline=1, command=on_closing, accelerator="Ctrl+Q")
+    menubar.add_cascade(label=glb.language[1], menu=menufichier) # Ajout du menu à la barre de menus
     
     # Menu aide
     menuaide = Menu(menubar,tearoff=0)
-    menuaide.add_command(label="À propos", underline=1, command=about, accelerator="F12")
+    menuaide.add_command(label=glb.language[9], underline=1, command=about, accelerator="F12")
     
     menuaide.add_separator() # Ajout d'un séparateur pour plus de lisibilité
     
-    menuaide.add_command(label="Aide", underline=1, command=help_window, accelerator="F1")
-    menubar.add_cascade(label="Aide", menu=menuaide) # Ajout du menu à la barre de menus
+    menuaide.add_command(label=glb.language[8], underline=1, command=help_window, accelerator="F1")
+    menubar.add_cascade(label=glb.language[8], menu=menuaide) # Ajout du menu à la barre de menus
     
     window.config(background=glb.window_color, menu=menubar) # Configuration du background de la fenêtre (par défaut : noir)
     window.resizable(width=False,height=False) # Configuration de la fenêtre comme non redimensionnable
